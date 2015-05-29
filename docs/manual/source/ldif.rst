@@ -86,10 +86,11 @@ A more complex modify operation (from the RFC2849 examples)::
         {'postaladdress': (MODIFY_ADD, ['123 Anystreet $ Sunnyvale, CA $ 94086']),
          'description': (MODIFY_DELETE, []),
          'telephonenumber': (MODIFY_REPLACE, ['+1 408 555 1234', '+1 408 555 5678']),
+         'description': (MODIFY_REPLACE, ['Development Contact']),
          'facsimiletelephonenumber': (MODIFY_DELETE, ['+1 408 555 9876'])
         })
 
-    returns:
+result will be::
 
     version: 1
     dn: cn=Paula Jensen, ou=Product Development, dc=airius, dc=com
@@ -102,6 +103,9 @@ A more complex modify operation (from the RFC2849 examples)::
     replace: telephonenumber
     telephonenumber: +1 408 555 1234
     telephonenumber: +1 408 555 5678
+    -
+    replace: description
+    description: Development Contact
     -
     delete: facsimiletelephonenumber
     facsimiletelephonenumber: +1 408 555 9876
